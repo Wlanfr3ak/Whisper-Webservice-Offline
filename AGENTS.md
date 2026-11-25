@@ -37,6 +37,17 @@
 
 ## Changelog
 
+### 0.6.0 - 2026-11-25
+- Feature: Wort-Konfidenz als durchgehender Farbverlauf statt binaerer
+  Rot-Markierung. Jedes Wort im Final-Transkript wird individuell gefaerbt:
+  gruen = sicher, orange = mittel (genau bei p=0,5), rot = unsicher.
+  Stueckweise lineare Hue-Interpolation (120 -> 39 -> 0), HSL 80%/60% fuer
+  Lesbarkeit auf dunklem Hintergrund. Tooltip mit Prozentwert bleibt auf
+  jedem Wort. CSS-Klasse .unc durch .wconf ersetzt, Legende im Hinweistext
+  angepasst.
+- Betroffene Dateien: server/app/static/{app.js,index.html},
+  server/app/__init__.py, README.md, AGENTS.md
+
 ### 0.5.2 - 2026-11-25
 - Doku: interne IP durch Dokumentations-Platzhalter `whispirvm.local`
   ersetzt (Regel 9/10 – nichts Umgebungsspezifisches im oeffentlichen

@@ -57,20 +57,24 @@ function onEvent(ev) {
   }
 }
 
+// Farbverlauf fuer Wort-Konfidenz: rot (0%) -> orange (50%) -> gruen (100%).
+// Stueckweise linear im Hue, damit genau bei p=0,5 orange liegt.
+function confColor(p) {
+  const hue = p < 0.5 ? 39 * (p / 0.5) : 39 + 81 * ((p - 0.5) / 0.5);
+  return `hsl(${Math.round(hue)}, 80%, 60%)`;
+}
+
 function renderFinal(ev) {
   const log = $('log');
   log.innerHTML = '';
   if (ev.words && ev.words.length) {
     for (const w of ev.words) {
-      if (w.p < 0.5) {
-        const s = document.createElement('span');
-        s.className = 'unc';
-        s.title = `Sicherheit: ${Math.round(w.p * 100)}%`;
-        s.textContent = w.w;
-        log.appendChild(s);
-      } else {
-        log.appendChild(document.createTextNode(w.w));
-      }
+      const s = document.createElement('span');
+      s.className = 'wconf';
+      s.style.color = confColor(w.p);
+      s.title = `Sicherheit: ${Math.round(w.p * 100)}%`;
+      s.textContent = w.w;
+      log.appendChild(s);
       log.appendChild(document.createTextNode(' '));
     }
   } else {

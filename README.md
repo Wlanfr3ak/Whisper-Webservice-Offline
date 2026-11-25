@@ -1,6 +1,6 @@
 # WhisperVM
 
-**Status: lauffaehiges Test-Deployment auf LXC, Version 0.5.2.**
+**Status: lauffaehiges Test-Deployment auf LXC, Version 0.6.0.**
 
 Webbasiertes Diktier-Tool mit Live-Transkription:
 
