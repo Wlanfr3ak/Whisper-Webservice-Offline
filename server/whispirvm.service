@@ -1,0 +1,24 @@
+[Unit]
+Description=WhisperVM - Webdiktat mit Whisper-Live-Transkription (RAM-only)
+After=network-online.target
+
+[Service]
+WorkingDirectory=/opt/whispirvm
+# Secrets (Passwort) kommen aus der nicht-committeten .env
+EnvironmentFile=/opt/whispirvm/.env
+# Laufzeit offline: Modell kommt aus dem lokalen HF-Cache (einmalig geladen)
+Environment=HF_HUB_OFFLINE=1
+Environment=TRANSFORMERS_OFFLINE=1
+Environment=WHISPER_MODEL=large-v3-turbo
+Environment=WHISPER_COMPUTE=int8
+Environment=WHISPER_CPU_THREADS=4
+Environment=WHISPER_LANG=de
+ExecStart=/opt/whispirvm/venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8443 --ssl-certfile /opt/whispirvm/certs/cert.pem --ssl-keyfile /opt/whispirvm/certs/key.pem --no-access-log --log-level warning
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target

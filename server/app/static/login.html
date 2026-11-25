@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>WhisperVM – Anmeldung</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 400px; margin: 15vh auto;
+         padding: 0 1rem; background: #111; color: #eee; }
+  h1 { font-size: 1.4rem; }
+  input, button { font-size: 1rem; padding: .5rem .8rem; border-radius: .4rem; }
+  input { background: #222; color: #eee; border: 1px solid #444; width: 14rem; }
+  button { border: 0; background: #2e7d32; color: #fff; cursor: pointer; }
+  #err { color: #e57373; min-height: 1.4em; }
+</style>
+</head>
+<body>
+<h1>WhisperVM – Anmeldung</h1>
+<p id="err"></p>
+<form id="f">
+  <input id="pw" type="password" autocomplete="current-password"
+         placeholder="Passwort" autofocus required>
+  <button type="submit">Anmelden</button>
+</form>
+<script>
+document.getElementById('f').onsubmit = async e => {
+  e.preventDefault();
+  const r = await fetch('/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ password: document.getElementById('pw').value }),
+  });
+  if (r.ok) location.reload();
+  else document.getElementById('err').textContent = 'Falsches Passwort';
+};
+</script>
+</body>
+</html>

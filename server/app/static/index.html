@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>WhisperVM – Diktat</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 660px; margin: 2rem auto;
+         padding: 0 1rem; background: #111; color: #eee; }
+  h1 { font-size: 1.4rem; }
+  button { font-size: 1rem; padding: .5rem 1rem; margin: 0 .5rem .5rem 0;
+           border: 0; border-radius: .4rem; cursor: pointer; }
+  button:disabled { opacity: .35; cursor: default; }
+  #bStart { background: #2e7d32; color: #fff; }
+  #bStop { background: #c62828; color: #fff; }
+  #log { white-space: pre-wrap; background: #1c1c1c; border: 1px solid #333;
+         border-radius: .4rem; padding: 1rem; min-height: 8rem; margin-top: 1rem;
+         font-family: ui-monospace, Consolas, monospace; }
+  #status { color: #9ab; }
+  #time { font-variant-numeric: tabular-nums; }
+  #meter { background: #222; border: 1px solid #444; border-radius: .3rem;
+           height: .7rem; width: 220px; display: inline-block;
+           vertical-align: middle; overflow: hidden; }
+  #lvl { display: block; background: #2e7d32; height: 100%; width: 0%; }
+  .unc { text-decoration: underline wavy #e57373; cursor: help; }
+  select { background: #222; color: #eee; border: 1px solid #444;
+           border-radius: .3rem; padding: .3rem; }
+  small { color: #889; }
+</style>
+</head>
+<body>
+<h1>WhisperVM – Diktat</h1>
+<p id="status">Verbinde…</p>
+<p>
+  Aufnahme: <span id="time">0:00</span> / 1:00 &nbsp;
+  Pegel: <span id="meter"><span id="lvl"></span></span> &nbsp;
+  Sprache:
+  <select id="lang">
+    <option value="de" selected>Deutsch</option>
+    <option value="en">English</option>
+    <option value="auto">Auto</option>
+  </select>
+</p>
+<div>
+  <button id="bStart" disabled>Aufnahme starten</button>
+  <button id="bStop" disabled>Stopp</button>
+  <button id="bCopy" disabled>Kopieren</button>
+  <button id="bExport" disabled>Export (.txt)</button>
+  <button id="bNext" disabled>Neues Diktat</button>
+  <button id="bReload" title="Seite neu laden">Neu laden</button>
+</div>
+<div id="log"></div>
+<p><small>Datensparsam: Audio und Text liegen nur im RAM des Servers und werden
+nach dem Transkribieren bzw. Reset vernichtet. Max. 60&nbsp;Sekunden pro Diktat.
+Erst Kopieren <em>und</em> Export, dann geht es weiter.
+Rot unterstrichen = Whisper unsicher (&lt;50%, Tooltip zeigt genauen Wert).</small></p>
+<script src="/static/app.js"></script>
+</body>
+</html>
