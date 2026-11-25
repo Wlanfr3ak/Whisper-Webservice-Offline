@@ -37,6 +37,13 @@
 
 ## Changelog
 
+### 0.5.2 - 2026-11-25
+- Doku: interne IP durch Dokumentations-Platzhalter `whispirvm.local`
+  ersetzt (Regel 9/10 – nichts Umgebungsspezifisches im oeffentlichen
+  Repo); README-Versionsstand auf 0.5.2 angeglichen.
+- Betroffene Dateien: README.md, MACHBARKEIT.md, AGENTS.md,
+  server/app/__init__.py
+
 ### 0.5.1 - 2026-11-25
 - MACHBARKEIT.md: neuer Abschnitt "Hardware-Optionen" – Bewertung
   i7-11700K (+Arc A770) vs. Core Ultra 7 255H vs. aktueller LXC,
@@ -100,7 +107,7 @@
   server/app/static/index.html, server/app/__init__.py, sync.sh
 
 ### 0.2.0 - 2026-11-24
-- Erste Umsetzung (PoC) auf Test-LXC root@192.168.2.98 (Debian 13,
+- Erste Umsetzung (PoC) auf Test-LXC root@whispirvm.local (Debian 13,
   4 Cores, 8 GB RAM, CPU-only):
   - server/app/: FastAPI + WebSocket /ws, RAM-Session mit 60-s-Cap,
     faster-whisper Worker (large-v3-turbo, int8, seriell), Teilfenster

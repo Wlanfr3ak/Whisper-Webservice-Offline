@@ -1,6 +1,6 @@
 # WhisperVM
 
-**Status: lauffaehiges Test-Deployment auf LXC (192.168.2.98), Version 0.4.0.**
+**Status: lauffaehiges Test-Deployment auf LXC, Version 0.5.2.**
 
 Webbasiertes Diktier-Tool mit Live-Transkription:
 
@@ -19,7 +19,7 @@ Verbindliche Regeln in [AGENTS.md](AGENTS.md).
 
 ## Aufruf
 
-`https://192.168.2.98:8443` – selbstsigniertes Zertifikat, Warnung im Browser
+`https://whispirvm.local:8443` – selbstsigniertes Zertifikat, Warnung im Browser
 einmalig bestaetigen (Mikrofon braucht sicheren Kontext).
 
 **Passwort-Schutz:** Ohne Login kein Zugriff auf Tool und WebSocket.

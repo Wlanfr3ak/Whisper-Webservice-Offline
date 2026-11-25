@@ -1,7 +1,7 @@
 # Machbarkeitsstudie & Konzept – WhisperVM
 
 > Status: **Machbarkeit bestaetigt** – PoC implementiert und auf
-> Test-LXC (192.168.2.98:8443) verifiziert: Live-Transkription,
+> Test-LXC (whispirvm.local:8443) verifiziert: Live-Transkription,
 > 60-s-Limit und Export-Zwang funktionieren Ende-zu-Ende.
 > Version: 0.5.1
 
