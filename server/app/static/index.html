@@ -9,7 +9,11 @@
          padding: 0 1rem; background: #111; color: #eee; }
   h1 { font-size: 1.4rem; }
   button { font-size: 1rem; padding: .5rem 1rem; margin: 0 .5rem .5rem 0;
-           border: 0; border-radius: .4rem; cursor: pointer; }
+           border: 0; border-radius: .4rem; cursor: pointer;
+           min-height: 44px; touch-action: manipulation; }
+  footer { margin-top: 3rem; text-align: center; color: #556;
+           font-size: .8rem; }
+  footer a { color: #556; }
   button:disabled { opacity: .35; cursor: default; }
   #bStart { background: #2e7d32; color: #fff; }
   #bStop { background: #c62828; color: #fff; }
@@ -55,6 +59,9 @@ nach dem Transkribieren bzw. Reset vernichtet. Max. 60&nbsp;Sekunden pro Diktat.
 Erst Kopieren <em>und</em> Export, dann geht es weiter.
 Wortfarbe = Whisper-Sicherheit pro Wort: gr&uuml;n = sicher, orange = mittel
 (~50%), rot = unsicher. Tooltip auf jedem Wort zeigt den genauen Prozentwert.</small></p>
+<footer>WhisperVM v<span id="ver"></span> &middot;
+<a href="https://github.com/Wlanfr3ak/Whisper-Webservice-Offline"
+   rel="noopener">GitHub</a></footer>
 <script src="/static/app.js"></script>
 </body>
 </html>

@@ -12,6 +12,9 @@
   input { background: #222; color: #eee; border: 1px solid #444; width: 14rem; }
   button { border: 0; background: #2e7d32; color: #fff; cursor: pointer; }
   #err { color: #e57373; min-height: 1.4em; }
+  footer { margin-top: 3rem; text-align: center; color: #556;
+           font-size: .8rem; }
+  footer a { color: #556; }
 </style>
 </head>
 <body>
@@ -33,6 +36,12 @@ document.getElementById('f').onsubmit = async e => {
   if (r.ok) location.reload();
   else document.getElementById('err').textContent = 'Falsches Passwort';
 };
+fetch('/api/version').then(r => r.json())
+  .then(d => { document.getElementById('ver').textContent = d.version; })
+  .catch(() => {});
 </script>
+<footer>WhisperVM v<span id="ver"></span> &middot;
+<a href="https://github.com/Wlanfr3ak/Whisper-Webservice-Offline"
+   rel="noopener">GitHub</a></footer>
 </body>
 </html>

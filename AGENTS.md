@@ -37,6 +37,15 @@
 
 ## Changelog
 
+### 0.6.1 - 2026-11-25
+- Feature: Unauffoelliger Footer mit Versionsanzeige + GitHub-Link auf
+  index.html und login.html; Version vom Backend (/api/version aus
+  __version__), damit keine Drift.
+- Mobile: min-height 44px Tap-Targets + touch-action auf Buttons
+  (Seite war schon responsive: viewport, max-width, umbrechende Buttons).
+- Betroffene Dateien: server/app/{main.py,__init__.py},
+  server/app/static/{index.html,login.html,app.js}
+
 ### 0.6.0 - 2026-11-25
 - Feature: Wort-Konfidenz als durchgehender Farbverlauf statt binaerer
   Rot-Markierung. Jedes Wort im Final-Transkript wird individuell gefaerbt:

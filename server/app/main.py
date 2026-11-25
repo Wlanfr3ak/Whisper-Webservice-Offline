@@ -32,6 +32,11 @@ async def index(request: Request):
     return FileResponse(STATIC_DIR / "login.html")
 
 
+@app.get("/api/version")
+async def api_version():
+    return {"version": __version__}
+
+
 @app.post("/login")
 async def login(request: Request):
     try:

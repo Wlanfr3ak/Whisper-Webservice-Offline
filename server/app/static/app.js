@@ -173,3 +173,6 @@ $('bNext').onclick = () => {
 $('bReload').onclick = () => location.reload();
 
 connect().then(() => ui.status('bereit')).catch(() => {});
+
+fetch('/api/version').then(r => r.json())
+  .then(d => { $('ver').textContent = d.version; }).catch(() => {});
